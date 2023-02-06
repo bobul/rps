@@ -1,1 +1,52 @@
-/*# sourceMappingURL=style.css.map */
+@import url("https://fonts.googleapis.com/css2?family=Acme&family=Arvo&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Acme", sans-serif;
+}
+
+body {
+  background: url(../img/paper-background.jpg);
+  background-position: center;
+}
+body h1 {
+  margin-top: 1.5rem;
+  font-size: 3.5rem;
+  color: goldenrod;
+  text-shadow: 0.2rem 0.2rem #6e7830;
+}
+body h2 {
+  font-size: 2.8rem;
+  color: goldenrod;
+  text-shadow: 0.2rem 0.2rem #6e7830;
+}
+body .game-title {
+  text-align: center;
+}
+body .game-title p {
+  font-size: 1.2rem;
+  color: rgb(194, 149, 36);
+  text-shadow: 0.055rem 0.055rem #6e7830;
+}
+body .game-action {
+  margin-top: 2rem;
+  text-align: center;
+}
+body .game-action p {
+  font-style: italic;
+}
+body .game-action p:hover {
+  color: red !important;
+}
+body .button-container button {
+  height: 10rem;
+  width: 10rem;
+  margin: 3rem 2rem;
+  background-color: transparent;
+  cursor: pointer;
+}
+body .button-container button img {
+  width: 90%;
+  height: 90%;
+}/*# sourceMappingURL=style.css.map */
