@@ -86,6 +86,14 @@ let rock = document.querySelector('#rock');
 let paper = document.querySelector('#paper');
 let scissors = document.querySelector('#scissors');
 
+let userPoints = 0;
+let computerPoints = 0;
+
+let userScore = document.querySelector('#user-p');
+let computerScore = document.querySelector('#comp-p');
+
+userScore.innerHTML = "0";
+computerScore.innerHTML = "0";
 
 
 
@@ -109,33 +117,35 @@ function getComputerChoice(rock,paper,scissors){
     let userChoice =  getUserChoice(e); 
     let computerChoice =  getComputerChoice(rock,paper,scissors);
     let result = document.querySelector('.result');
-    let userScore = document.querySelector('.user-score');
-    let computerScore = document.querySelector('.computer-score');
-    let userPoints = 0;
-    let computerPoints = 0;
 
     if (userChoice === 'rock' && computerChoice === 'scissors') {
-        userPoints++;
+        userPoints += 1;
+        userScore.innerHTML = `${userPoints.toString()}`;
         result.innerHTML = "You won! Rock beats Scissors";
     }
     else if (userChoice === 'rock' && computerChoice === 'paper') {
-        computerPoints++
+        computerPoints += 1;
+        computerScore.innerHTML = `${computerPoints.toString()}`;
         result.innerHTML = "You lose! Paper beats Rock";
     }
     else if (userChoice === 'rock' && computerChoice === 'rock') {
-        userPoints++;
+        userPoints += 1;
+        userScore.innerHTML = `${userPoints.toString()}`;
         result.innerHTML = "You won! Paper beats rock";
     }
     else if (userChoice === 'scissors' && computerChoice === 'paper') {
-        userPoints++;
+        userPoints += 1;
+        userScore.innerHTML = `${userPoints.toString()}`;
         result.innerHTML = "You won! Scissors beats Paper";
     }
     else if (userChoice === 'paper' && computerChoice === 'scissors') {
-        computerPoints++;
+        computerPoints += 1;
+        computerScore.innerHTML = `${computerPoints.toString()}`;
         result.innerHTML = "You lose! Scissors beats Paper";
     }
     else if (userChoice === 'scissors' && computerChoice === 'rock') {
-        computerPoints++;
+        computerPoints += 1;
+        computerScore.innerHTML = `${computerPoints.toString()}`;
         result.innerHTML = "You lose! Rock beats Scissors";
     }
     else if (userChoice === 'rock' && computerChoice === 'rock') {
@@ -147,4 +157,8 @@ function getComputerChoice(rock,paper,scissors){
     else if(userChoice === 'paper' && computerChoice === 'paper') {
         result.innerHTML = "Tie game! Paper vs Paper";
     };
+
+    if(userPoints === 5){
+        
+    }
 }
