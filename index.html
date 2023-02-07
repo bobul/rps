@@ -5,9 +5,42 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Game: RPS</title>
-    <script src="./script/script.js"></script>
+    <link rel="stylesheet" href="./styles/style.css">
+    <script src="./script/script.js" defer></script>
 </head>
 <body>
-    
+    <header class="game-title">
+        <h1>Rock Paper Scissors</h1>
+        <p>One of the most famous games in the entire world!</p>
+    </header>
+    <main>
+        <div class="game-action">
+            <h2>Choose your button to play against the computer</h2>
+            <p>Rules: the first who will gain 5 points - is counted a winner</p>
+        <div class="button-container">
+                <button class="btn rock" id="rock"><img src="./img/rock.png" alt="rock" id="rock"></button>
+                <button class="btn paper" id="paper"><img src="./img/paper-main.png" alt="paper" id="paper"></button>
+                <button class="btn scissors" id="scissors"><img src="./img/scissors.png" alt="scissors" id="scissors"></button>
+            </div>
+        </div>
+        <div class="points">
+            <div class="user-score">
+                <p>Your points: </p>
+                <p id="user-p"></p>
+            </div>
+            <div class="computer-score">
+                <p>Computer points:</p>
+                <p id="comp-p"></p>
+            </div>   
+        </div>
+        <div class="result">
+        </div>
+        <div class="reset">
+            <button id="try-again">Try Again</button>
+        </div>
+    </main>
+    <footer>
+        <p>Authored by Felix Yudashkin</p>
+    </footer>
 </body>
 </html>
