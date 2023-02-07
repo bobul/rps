@@ -86,15 +86,33 @@ let rock = document.querySelector('#rock');
 let paper = document.querySelector('#paper');
 let scissors = document.querySelector('#scissors');
 
+let result = document.querySelector('.result');
+
 let userPoints = 0;
 let computerPoints = 0;
 
 let userScore = document.querySelector('#user-p');
 let computerScore = document.querySelector('#comp-p');
 
+let reset = document.querySelector('#try-again');
+
+
 userScore.innerHTML = "0";
 computerScore.innerHTML = "0";
 
+reset.addEventListener('click', resetGame);
+
+function resetGame(){
+    result.innerHTML = "";
+    userPoints = 0;
+    computerPoints = 0;
+    userScore.innerHTML = 0;
+    computerScore.innerHTML = 0;
+    reset.style.display = 'none'
+    rock.disabled = false;
+    paper.disabled = false;
+    scissors.disabled = false;
+}
 
 
 buttons.forEach(function(item){
@@ -116,7 +134,7 @@ function getComputerChoice(rock,paper,scissors){
 
     let userChoice =  getUserChoice(e); 
     let computerChoice =  getComputerChoice(rock,paper,scissors);
-    let result = document.querySelector('.result');
+    
 
     if (userChoice === 'rock' && computerChoice === 'scissors') {
         userPoints += 1;
@@ -159,6 +177,18 @@ function getComputerChoice(rock,paper,scissors){
     };
 
     if(userPoints === 5){
-        
+        result.innerHTML = "Congratulations! You have won. Play again";
+        reset.style.display = 'block';
+        rock.disabled = true;
+        paper.disabled = true;
+        scissors.disabled = true;
+    }
+    
+    if(computerPoints === 5){
+        result.innerHTML = "Oh no! You have lost. Try once more";
+        reset.style.display = 'block';
+        rock.disabled = true;
+        paper.disabled = true;
+        scissors.disabled = true;
     }
 }
