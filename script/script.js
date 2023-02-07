@@ -45,10 +45,7 @@
 //     }
 // }
 
-// function getUserChoice(){
-//     let item = prompt("Choose rock, paper or scissors: ");
-//     return item;
-// }
+
 
 // function play(getUserChoice, getComputerChoice) {
 //     let playerPoints = 0;
@@ -84,6 +81,70 @@
 
 // play(getUserChoice, getComputerChoice);
 
-let button = document.querySelector('btn');
+let buttons = document.querySelectorAll('.btn');
+let rock = document.querySelector('#rock');
+let paper = document.querySelector('#paper');
+let scissors = document.querySelector('#scissors');
 
-let game = button.addEventListener('click', startGame);
+
+
+
+buttons.forEach(function(item){
+    item.addEventListener('click', getUserChoice);
+    item.addEventListener('click', playRound);
+})
+
+function getUserChoice(e){
+    let choice = e.target.id.toString(); 
+    return choice;
+}
+
+function getComputerChoice(rock,paper,scissors){
+    let items = [rock, paper, scissors]
+    return items[Math.floor(Math.random()*items.length)].id; 
+}
+
+ function playRound(e){
+
+    let userChoice =  getUserChoice(e); 
+    let computerChoice =  getComputerChoice(rock,paper,scissors);
+    let result = document.querySelector('.result');
+    let userScore = document.querySelector('.user-score');
+    let computerScore = document.querySelector('.computer-score');
+    let userPoints = 0;
+    let computerPoints = 0;
+
+    if (userChoice === 'rock' && computerChoice === 'scissors') {
+        userPoints++;
+        result.innerHTML = "You won! Rock beats Scissors";
+    }
+    else if (userChoice === 'rock' && computerChoice === 'paper') {
+        computerPoints++
+        result.innerHTML = "You lose! Paper beats Rock";
+    }
+    else if (userChoice === 'rock' && computerChoice === 'rock') {
+        userPoints++;
+        result.innerHTML = "You won! Paper beats rock";
+    }
+    else if (userChoice === 'scissors' && computerChoice === 'paper') {
+        userPoints++;
+        result.innerHTML = "You won! Scissors beats Paper";
+    }
+    else if (userChoice === 'paper' && computerChoice === 'scissors') {
+        computerPoints++;
+        result.innerHTML = "You lose! Scissors beats Paper";
+    }
+    else if (userChoice === 'scissors' && computerChoice === 'rock') {
+        computerPoints++;
+        result.innerHTML = "You lose! Rock beats Scissors";
+    }
+    else if (userChoice === 'rock' && computerChoice === 'rock') {
+        result.innerHTML = "Tie game! Rock versus Rock";
+    }
+    else if (userChoice === 'scissors' && computerChoice === 'scissors') {;
+        result.innerHTML = "Tie game! Scissors versus Scissors";
+    }
+    else if(userChoice === 'paper' && computerChoice === 'paper') {
+        result.innerHTML = "Tie game! Paper vs Paper";
+    };
+}
